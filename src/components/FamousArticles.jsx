@@ -4,7 +4,7 @@ import parse from "html-react-parser";
 import styled from "styled-components";
 
 const FamousArticles = ({ articles, ids = [] }) => {
-  const fallbackImage = "../../assets/test.jpg";
+  const fallbackImage = "../assets/test.jpg";
 
   // Filter articles by IDs if provided; otherwise, show all articles
   const filteredArticles = ids.length > 0 ? articles.filter((article) => ids.includes(article._id)) : articles;

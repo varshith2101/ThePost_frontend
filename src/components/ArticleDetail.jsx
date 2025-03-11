@@ -12,8 +12,8 @@ const ArticleDetail = ({ articles }) => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [suggestedArticles, setSuggestedArticles] = useState([]);
-  const fallbackImage = "../../assets/test.jpg";
-  const fallback2 = "../../assets/test_2.jpg"; // Fallback for content images
+  const fallbackImage = "/../assets/test.jpg";
+  const fallback2 = "../assets/test_2.jpg"; // Fallback for content images
 
   useEffect(() => {
     const fetchArticle = async () => {

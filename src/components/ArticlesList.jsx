@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 
 
 const ArticlesList = ({ articles }) => {
-  const fallbackImage = "../../assets/test.jpg";
+  const fallbackImage = "../assets/test.jpg";
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
