@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CarouselComponent = ({ articles }) => {
-  const fallbackImage = "../assets/test.jpg";
+  const fallbackImage = "/test.jpg";
 
   return (
     <section className="carousel-section">
