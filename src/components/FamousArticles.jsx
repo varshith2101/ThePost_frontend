@@ -50,7 +50,7 @@ const StyledWrapper = styled.div`
   .section-title {
     font-size: 60px;
     font-weight: bold;
-    color:rgb(10, 10, 10);
+    color:#f06739;
     margin-bottom: 20px;
     text-align: center;
     letter-spacing: -3px;
