@@ -1,39 +1,33 @@
-/* Hero.css */
 .hero {
-    text-align: center;
-    padding: 150px 20px;
-    background: #0a0a0a;
-    margin: 20px 0;
-    position: relative;
-    overflow: hidden;
-    cursor: none;
-  }
-  
-  .particle-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-  
-  .hero-title {
-    font-size: 64px;
-    font-weight: bold;
-    color: #fff0e5;
-    text-shadow: 
-      0 0 10px rgba(240, 103, 57, 0.8),
-      0 0 30px rgba(240, 103, 57, 0.5);
-    position: relative;
-    z-index: 3;
-    transition: all 0.3s ease;
-  }
-  
-  .hero:hover .hero-title {
-    text-shadow: 
-      0 0 20px rgba(240, 103, 57, 0.9),
-      0 0 50px rgba(240, 103, 57, 0.7),
-      0 0 80px rgba(240, 103, 57, 0.5);
-    transform: scale(1.02);
-  }
+  position: relative;
+  text-align: center;
+  padding: 150px 20px;
+  background: #0a0a0a;
+  margin: 20px 0;
+  overflow: hidden;
+  cursor: none;
+}
+
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none; /* This is crucial - allows mouse events to pass through */
+}
+
+
+
+.hero-subtitle {
+  font-size: 24px;
+  color: #f0f0f0;
+  margin-top: 10px;
+  text-shadow: 
+    0 0 5px #f0f0f0, 
+    0 0 10px #f0f0f0, 
+    0 0 20px #f0f0f0; /* Subtle glow effect */
+  position: relative;
+  z-index: 2;
+}

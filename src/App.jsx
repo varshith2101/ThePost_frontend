@@ -8,11 +8,13 @@ import ArticlesList from "./components/ArticlesList";
 import ArticleDetail from "./components/ArticleDetail";
 import Footer from "./components/Footer";
 import "./index.css";
+import RotatingCircle from "./components/RotatingCircle";
 
 // Home page component
 const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
   return (
     <>
+      <RotatingCircle />
       <Navbar />
       <div className="app-container">
         <Hero />

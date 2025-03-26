@@ -36,7 +36,7 @@ h1, h2, h3, p {
 
 /* Navbar */
 .navbar {
-  padding: 25vh;
+  padding: 15vh;
   padding-top: 1vh;
   padding-bottom: 1vh;
   display: flex;
@@ -99,39 +99,24 @@ h1, h2, h3, p {
 
 /* Hero Title with Glow/Neon Effect */
 .hero-title {
-  font-size: 64px;
-  font-weight: bold;
-  color: #ececec;
+  font-size: 80px;
+  font-weight: 550;
+  color: #f0f0f0;
+  position: relative;
+  z-index:0;
   text-shadow: 
-    0 0 20px #f06739, 
-    0 0 30px #f06739, 
-    0 0 40px #f06739, 
-    0 0 50px #f06739; /* Neon glow effect */
+    0 0 5px #f0f0f0, 
+    0 0 10px #f0f0f0, 
+    0 0 20px #f0f0f0; /* Subtle glow effect */
   position: relative;
   z-index: 2;
-  animation: glow 1.5s infinite alternate; /* Glow animation */
 }
 
-@keyframes glow {
-  0% {
-    text-shadow: 
-      0 0 20px #f06739, 
-      0 0 30px #f06739, 
-      0 0 40px #f06739, 
-      0 0 50px #f06739;
-  }
-  100% {
-    text-shadow: 
-      0 0 20px #f06739, 
-      0 0 50px #f06739, 
-      0 0 80px #f06739, 
-      0 0 110px #f06739;
-  }
-}
+
 
 /* Hero Subtitle with Glow/Neon Effect */
 .hero-subtitle {
-  font-size: 24px;
+  font-size: 27px;
   color: #f0f0f0;
   margin-top: 10px;
   text-shadow: 
