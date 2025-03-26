@@ -134,13 +134,15 @@ const Hero = () => {
         drawShape(ctx, p);
       });
 
+      // Change this gradient in your animate() function
       if (mouse.current.x > 0 && mouse.current.y > 0) {
         const gradient = ctx.createRadialGradient(
           mouse.current.x, mouse.current.y, 0,
           mouse.current.x, mouse.current.y, 150
         );
-        gradient.addColorStop(0, 'rgba(240, 103, 57, 0.05)');
-        gradient.addColorStop(1, 'rgba(240, 103, 57, 0)');
+        // Change from orange to white while maintaining opacity
+        gradient.addColorStop(0, 'rgba(255, 255, 255, 0.05)');  // White with same alpha
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');     // White with same alpha
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
