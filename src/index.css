@@ -141,7 +141,7 @@ h1, h2, h3, p {
   margin-bottom: 20px;
   text-align: center;
   letter-spacing: -3px;
-  float: left;
+  float: left; /* Subtle glow effect */
 }
 
 .carousel {
