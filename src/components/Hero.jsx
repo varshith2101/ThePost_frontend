@@ -30,8 +30,8 @@ const Hero = () => {
         x: Math.random() * canvasSize.current.width,
         y: Math.random() * canvasSize.current.height,
         size,
-        speedX: Math.random() * 2 - 1,
-        speedY: Math.random() * 2 - 1,
+        speedX: Math.random() * 2 ,
+        speedY: Math.random() * 2 ,
         baseColor: color,
         shape,
         rotation: Math.random() * Math.PI * 2,
@@ -113,7 +113,7 @@ const Hero = () => {
         const dx = mouse.current.x - p.x;
         const dy = mouse.current.y - p.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 150;
+        const maxDistance = 300;
         
         if (distance < maxDistance && distance > 0) {
           const force = (maxDistance - distance) / maxDistance;
@@ -125,7 +125,7 @@ const Hero = () => {
         }
         
         const alpha = distance < maxDistance ? 
-          Math.min(0.8, 1 + (maxDistance - distance) / maxDistance * 0.6) : 0.6;
+          1 : 1 - Math.min((distance - maxDistance) / 100, 0.8);
         
         ctx.fillStyle = `rgba(${p.baseColor.join(',')}, ${alpha})`;
         ctx.shadowBlur = p.shape === 'circle' ? 15 : 10;
