@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import CarouselComponent from "./components/CarouselComponent";
@@ -7,10 +8,10 @@ import FamousArticles from "./components/FamousArticles";
 import ArticlesList from "./components/ArticlesList";
 import ArticleDetail from "./components/ArticleDetail";
 import Footer from "./components/Footer";
+import Login from "./components/Login";
 import "./index.css";
 import RotatingCircle from "./components/RotatingCircle";
 
-// Home page component
 const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
   return (
     <>
@@ -21,32 +22,40 @@ const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
         <CarouselComponent articles={articles.slice(0, 6)} />
         <FamousArticles articles={articles} ids={famousArticleIDs} />
         <ArticlesList articles={articles} ids={listArticleIDs} />
-        
       </div>
       <Footer />
     </>
   );
 };
 
+const ProtectedRoute = ({ children }) => {
+  const { currentUser } = useAuth();
+  return currentUser ? children : <Navigate to="/login" replace />;
+};
+
 const App = () => {
   const [articles, setArticles] = useState([]);
+  const { currentUser } = useAuth(); // Now this will work properly
 
-  // Predefined list of article IDs for Famous Articles and Articles List
   const famousArticleIDs = ["67d041735e2b9503bac85edd", "67d041735e2b9503bac85edb", "67d041735e2b9503bac85eda"];
   const listArticleIDs = [];
 
-  // Fetch articles from backend
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/articles`);
-        const data = await response.json();
-        
-        // Sort articles by date (newest first)
-        const sortedArticles = data.sort((a, b) => {
-          return new Date(b.pubDate) - new Date(a.pubDate);
+        const headers = {};
+        if (currentUser) {
+          headers['Authorization'] = `Bearer ${currentUser.token}`;
+        }
+
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/articles`, {
+          headers
         });
         
+        if (!response.ok) throw new Error('Failed to fetch articles');
+        
+        const data = await response.json();
+        const sortedArticles = data.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
         setArticles(sortedArticles);
       } catch (error) {
         console.error("Error fetching articles:", error);
@@ -54,7 +63,7 @@ const App = () => {
     };
 
     fetchArticles();
-  }, []);
+  }, [currentUser]);
 
   return (
     <Routes>
@@ -63,6 +72,18 @@ const App = () => {
         element={<HomePage articles={articles} famousArticleIDs={famousArticleIDs} listArticleIDs={listArticleIDs} />} 
       />
       <Route path="/articles/:id" element={<ArticleDetail articles={articles} />} />
+      <Route path="/login" element={<Login />} />
+      <Route 
+        path="/admin" 
+        element={
+          <ProtectedRoute>
+            <div className="p-8">
+              <h1 className="text-2xl font-bold">Admin Dashboard</h1>
+              <p>Welcome, {currentUser?.username}!</p>
+            </div>
+          </ProtectedRoute>
+        } 
+      />
     </Routes>
   );
 };
