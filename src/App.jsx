@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import "./index.css";
 import RotatingCircle from "./components/RotatingCircle";
+import AdminDashboard from './components/AdminDashboard';
 
 const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
   return (
@@ -77,10 +78,7 @@ const App = () => {
         path="/admin" 
         element={
           <ProtectedRoute>
-            <div className="p-8">
-              <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-              <p>Welcome, {currentUser?.username}!</p>
-            </div>
+            <AdminDashboard />
           </ProtectedRoute>
         } 
       />

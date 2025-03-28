@@ -15,8 +15,8 @@ const Login = () => {
     try {
       setError('');
       setLoading(true);
-      await login(username, password);
-      navigate('/');
+      const user = await login(username, password);
+      navigate(user.role === 'admin' ? '/admin' : '/');
     } catch (err) {
       setError('Failed to login. Please check your credentials.');
       console.error(err);
