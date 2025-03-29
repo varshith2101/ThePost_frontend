@@ -161,6 +161,13 @@ const StyledWrapper = styled.div`
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
+    .article-content img {
+    max-width: 70%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
 
   .article-content p:has(img) {
     padding-left: 12vw;

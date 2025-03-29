@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import "./index.css";
 import RotatingCircle from "./components/RotatingCircle";
 import AdminDashboard from './components/AdminDashboard';
+import AdminArticlesList from './components/AdminArticlesList';
 
 const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
   return (
@@ -75,13 +76,21 @@ const App = () => {
       <Route path="/articles/:id" element={<ArticleDetail articles={articles} />} />
       <Route path="/login" element={<Login />} />
       <Route 
-        path="/admin" 
-        element={
-          <ProtectedRoute>
-            <AdminDashboard />
-          </ProtectedRoute>
-        } 
-      />
+          path="/admin/" 
+          element={
+            <ProtectedRoute>
+              <AdminDashboard articles={articles} />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/admin/articles" 
+          element={
+            <ProtectedRoute>
+              <AdminArticlesList articles={articles} />
+            </ProtectedRoute>
+          } 
+        />
     </Routes>
   );
 };

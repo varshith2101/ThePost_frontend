@@ -375,3 +375,98 @@ h1, h2, h3, p {
 .navbar-brand-link:hover {
   color: #f3440a;
 }
+
+/* Add this to your CSS file */
+.tiptap-editor {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.menu-bar {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.menu-bar button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu-bar button.is-active {
+  background: #ddd;
+}
+
+.ProseMirror {
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.ProseMirror:focus {
+  outline: none;
+  border-color: #aaa;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dark theme styles */
+.dark-tiptap-editor {
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #000;
+}
+
+.dark-tiptap-editor .menu-bar {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.dark-tiptap-editor .menu-bar button {
+  padding: 5px 10px;
+  border: 1px solid #555;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dark-tiptap-editor .menu-bar button.is-active {
+  background: #666;
+}
+
+.dark-tiptap-editor .ProseMirror {
+  min-height: 200px;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #000;
+  color: white;
+}
+
+.dark-tiptap-editor .ProseMirror:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.dark-tiptap-editor .ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Style links in the editor */
+.dark-tiptap-editor .ProseMirror a {
+  color: #4dabf7;
+}
