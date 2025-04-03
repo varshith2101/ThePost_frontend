@@ -13,6 +13,7 @@ import "./index.css";
 import RotatingCircle from "./components/RotatingCircle";
 import AdminDashboard from './components/AdminDashboard';
 import AdminArticlesList from './components/AdminArticlesList';
+import EditArticle from './components/EditArticle';
 
 const HomePage = ({ articles, famousArticleIDs, listArticleIDs }) => {
   return (
@@ -90,6 +91,14 @@ const App = () => {
               <AdminArticlesList articles={articles} />
             </ProtectedRoute>
           } 
+        />
+        <Route
+          path="/admin/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditArticle />
+            </ProtectedRoute>
+          }
         />
     </Routes>
   );
