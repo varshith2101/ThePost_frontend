@@ -1,6 +1,6 @@
 {
-    "rewrites": [
-      { "source": "/admin", "destination": "/" }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/admin/articles", "destination": "/" },
+    { "source": "/admin/:path*", "destination": "/" }
+  ]
+}
